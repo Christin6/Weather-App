@@ -11,13 +11,44 @@
     <body>
         <header>
             <input type="text" name="loc-input" id="loc-input" placeholder="search for city">
-            <button onclick="displayWeather()">test</button>
+            <button onclick="displayWeather()">Find Weather</button>
         </header>
         
         <main id="today-weather">
-            <p id="city-name"></p>
-            <p id="temp"></p>
-            <p id="weather-desc"></p>
+            <article class="primary-card">
+                <p id="city-name"></p>
+                <p id="temp"></p>
+                <p id="weather-desc"></p>
+                <p id="feels-like"></p>
+            </article>
+            <article class="detail-cards">
+                <div class="detail-card">
+                    <p class="detail-label">Wind Speed</p>
+                    <p class="detail-info" id="wind"></p>
+                </div>
+                <div class="detail-card">
+                    <p class="detail-label">Humidity</p>
+                    <p class="detail-info" id="humid"></p>
+                </div>
+                <div class="detail-card">
+                    <p class="detail-label">Visibility</p>
+                    <p class="detail-info" id="visibility"></p>
+                </div>
+                <div class="detail-card">
+                    <p class="detail-label">UV Index</p>
+                    <p class="detail-info" id="uv-index"></p>
+                </div>
+                <div class="detail-card">
+                    <p class="detail-label">Sunrise</p>
+                    <p class="detail-info" id="sunrise"></p>
+                </div>
+                <div class="detail-card">
+                    <p class="detail-label">Sunset</p>
+                    <p class="detail-info" id="sunset"></p>
+                </div>
+            </article>
+            <article id="forecasts"></article>
+            
         </main>
 
         <script src="script.js" async defer></script>

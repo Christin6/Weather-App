@@ -5,6 +5,14 @@ async function getWeather(loc) {
         cityName: document.querySelector("#today-weather #city-name"),
         temp: document.querySelector("#today-weather #temp"),
         weatherDesc: document.querySelector("#today-weather #weather-desc"),
+        feelsLike: document.querySelector("#today-weather #feels-like"),
+        wind: document.querySelector("#today-weather #wind"),
+        humidity: document.querySelector("#today-weather #humid"),
+        visibility: document.querySelector("#today-weather #visibility"),
+        uvIndex: document.querySelector("#today-weather #uv-index"),
+        sunrise: document.querySelector("#today-weather #sunrise"),
+        sunset: document.querySelector("#today-weather #sunset"),
+        forecasts: document.getElementById("forecasts"),
     }
     
     try {
@@ -19,6 +27,26 @@ async function getWeather(loc) {
         output.cityName.innerText = weatherData.address.toUpperCase();
         output.temp.innerText = `${currentWeather.temp} °C`;
         output.weatherDesc.innerText = currentWeather.conditions;
+        output.feelsLike.innerText = `feels like ${currentWeather.feelslike} °C`;
+        output.wind.innerText = `${currentWeather.windspeed} km/h`;
+        output.humidity.innerText = `${currentWeather.humidity}%`;
+        output.visibility.innerText = `${currentWeather.visibility}km`;
+        output.uvIndex.innerText = `${currentWeather.uvindex}`;
+        output.sunrise.innerText = `${currentWeather.sunrise}`;
+        output.sunset.innerText = `${currentWeather.sunset}`;
+
+        for (let i=1; i<=7; i++) {
+            const newCard = document.createElement("div");
+            newCard.classList.add("forecast-card");
+
+            const date = new Date(weatherData.days[i].datetimeEpoch * 1000);
+
+            newCard.innerHTML = `<p class="forecast-label">${date.getDate()}</p>
+            <p class="forecast-data">${weatherData.days[i].temp} °C</p>`;
+
+            output.forecasts.append(newCard);
+            console.log(weatherData.days[i].temp);
+        }
 
         console.log(weatherData);
         console.log(currentWeather);
