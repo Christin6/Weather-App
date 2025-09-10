@@ -9,7 +9,17 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <header>
+            <input type="text" name="loc-input" id="loc-input" placeholder="search for city">
+            <button onclick="displayWeather()">test</button>
+        </header>
         
+        <main id="today-weather">
+            <p id="city-name"></p>
+            <p id="temp"></p>
+            <p id="weather-desc"></p>
+        </main>
+
         <script src="script.js" async defer></script>
     </body>
 </html>
